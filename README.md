@@ -1,2 +1,2 @@
 # SymbCalc
-SymbCalc calculates frequency of character's presence in a text given and displays the most frequent characters and number of their presence
+SymbCalc calculates frequency of character's presence in a text given, displays the most frequent characters and quantity of their presence in the text
