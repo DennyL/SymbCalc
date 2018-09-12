@@ -1,5 +1,7 @@
 #author Denys Lozinskyi
-#beta 3
+#beta 4
+
+import sys
 
 def symbCalc(text):
     '''
@@ -8,6 +10,7 @@ def symbCalc(text):
     '''
     text = text.lower()
     textTab = {}
+    #print(text)
      
     for symbol in text:
         if symbol.isalpha():
@@ -37,8 +40,16 @@ def symbCalc(text):
         maxKeysList.sort()
         print("Буквы: %s встречаются в вашем тексте наиболее часто. Они были встречены %s раз(а)" %(maxKeysList, goalVal))
                 #note that in Python 3.6, instead of %s we may use print(f"string {variable1} string {variable2}") formatting method
-                
-text = str(input("Введите ваш текст:\n"))
+
+""" for input I take sys.stdin.read instead of input() to enable the app to work with multipule lines.
+    Using sys.stdin.readlines returns a list with inputed lines as its elements.
+    Also, it adds \n to every element and calculates them as extra "n"s
+    which is unacceptable. Meanwhile .read gives proper effect.
+    However, there is a disadventage of using sys.stdin - the neccessity of entering Ctrl-D every time at inputing a text
+""" 
+
+print("Введите ваш текст, после чего нажмите Enter и Ctrl-D:")                
+text = str(sys.stdin.read())
 
 symbCalc(text)
 
