@@ -10,3 +10,7 @@ Beta 2:
 
 Beta 3:
 Overall improvements. Last version that uses input() as the way of text input.
+
+Beta 4:
+1. Now the app is able to analyze a multiple line text.
+It was achived by replacement of input() with sys.stdin.read()
