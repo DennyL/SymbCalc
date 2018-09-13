@@ -1,5 +1,5 @@
 #author Denys Lozinskyi
-#beta 4
+#beta 5
 
 import sys
 
@@ -38,8 +38,23 @@ def symbCalc(text):
             if textTab.get(key) == goalVal:
                 maxKeysList.append(key)
         maxKeysList.sort()
-        print("Буквы: %s встречаются в вашем тексте наиболее часто. Они были встречены %s раз(а)" %(maxKeysList, goalVal))
-                #note that in Python 3.6, instead of %s we may use print(f"string {variable1} string {variable2}") formatting method
+        result = ', '.join(maxKeysList)
+        """next block serves to provide smart output of SymbCalc due to its Russian interface.
+           When SymCalc calculated symbols, it returns the following line:
+           "Буквы: foo встречаются в вашем тексте наиболее часто. Они были встречены bar раз(а)".
+           The code below authomatically defines in which case we should print "раз" and in which - "раза".
+           When we try to figure out in which case we use either of the words, we will notice, that
+           in Russian we say "/number/ раза" with all numbers that end with 2, 3 and 4 except 12, 13 and 14.
+           In other cases we say "раз".
+           Variable "sign" assignes to the last digit of "goalVal" (which is a quantity of repetitions of a letter in a text)
+        """
+        sign = goalVal % 10 #picking last digit of the number
+        if sign in range(2, 5) and goalVal not in range(12, 15):
+            ending = "раза"
+        else:
+            ending = "раз"
+        #and forming a smart output message    
+        print("Буквы \"%s\" встречаются в вашем тексте наиболее часто.\nОни были встречены %s %s" %(result, goalVal, ending))
 
 """ for input I take sys.stdin.read instead of input() to enable the app to work with multipule lines.
     Using sys.stdin.readlines returns a list with inputed lines as its elements.
