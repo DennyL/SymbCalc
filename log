@@ -11,7 +11,13 @@ Beta 4:
 1. Now the app is able to analyze a multiple line text.
 It was achived by replacement of input() with sys.stdin.read()
 
-Beta 5:
+Beta 5: (last console version)
 No square brackets in the output anymore. Now it is a nice and smart string.
 SymbCalc now authomaticaly prints a proper ending in the output ("раз"/"раза")
 which makes output more "human-like":)
+
+Beta 5.0.1: (first GUI implementation)
+Since this time on script is being devepopped with GUI.
+Apart from mere convenience in use, GUI helps working with multiline text input, leaving aside inconvenient sys.stdin method.
+Versions will be marked as 5.x.x, where 5.x stands for version of the Logic, and last x points out on version of GUI.
+
